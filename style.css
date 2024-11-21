@@ -1,0 +1,47 @@
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.navbar{
+    background-color: #343a40;  
+}
+.nav{
+    color: aliceblue;
+}
+.sidebar {
+    height: 100vh;
+    background-color: #343a40;
+    color: white;
+    padding-top: 1rem;
+    position: fixed;
+}
+.tag{
+    background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
+    
+}
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    padding: 0.8rem;
+    display: block;
+}
+.sidebar a:hover {
+    background-color: #495057;
+}
+.dashboard-header {
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.card {
+    margin: 1rem;
+}
+.card-header {
+    color: white;
+}

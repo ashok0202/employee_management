@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand nav" href="#">Admin</a>
+            <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link nav" id="navItem2" href="#">Home</a>
+                    <a class="nav-link nav" id="navItem3" href="#">Features</a>
+                    <a class="nav-link nav" id="navItem4" href="#">Pricing</a>
+                    <a class="nav-link nav" id="navItem5" href="#">Contact US</a>
+                    <a class="nav-link nav" id="navItem6" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Layout with Sidebar and Main Content -->
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-2 sidebar">
+                <h4 class="text-center my-3">ADMIN</h4>
+                <a href="#" id="adminBtn">Dashboard</a>
+                <a href="#" id="depart">Departments</a>
+                <a href="#">Tasks</a>
+                <a href="#">Evaluation</a>
+                <a href="#">Designation</a>
+                <a href="#" id="employe">Employees</a>
+                <a href="#">Evaluator</a>
+                <a href="#" id="users">Users</a>
+                <a href="login.html">Logout</a>
+            </div>
+
+            <!-- Main Content -->
+
+            <div class="col-10 offset-2">
+                <div class="dashboard-header">
+                    <h5>Dashboard</h5>
+                    <div>
+                        <span>Admin User</span>
+                    </div>
+                </div>
+                <div class="row" id="subContainer">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let subContainerEl = document.getElementById("subContainer");
+    
+        // Data arrays
+        let adminData = ["Total Departments", "Total Designations", "Total Users", "Total Employees", "Total Tasks"];
+        let departData = ["Research and Development", "Training", "Development", "Customer Service", "Information Technology"];
+
+        let firstNames = ["John Smith", "Emily Brown", "Michael Jones", "Sarah Miller", "David ", "Anna Davis", "James", "Sophia", "Robert", "Olivia"];
+        let use=["Anna Davis","Robert","Michael Jones","Olivia","Emily Brown","John Smith"];
+    
+        
+        function createCards(dataArray) {
+            subContainerEl.innerHTML = ""; // Clear previous content
+            for (let i = 0; i < dataArray.length; i++) {
+            
+                let div1 = document.createElement("div");
+                div1.classList.add("col-md-4", "mb-3"); 
+    
+                let div2 = document.createElement("div");
+                div2.classList.add("card", "bg-primary", "text-white");
+    
+                let div3 = document.createElement("div");
+                div3.classList.add("card-body");
+    
+                let n = Math.floor(Math.random() * 10) + 1; 
+    
+                let hEl = document.createElement("h1");
+                hEl.classList.add("card-title");
+                hEl.textContent = n;
+    
+                let pEl = document.createElement("p");
+                pEl.classList.add("card-text");
+                pEl.textContent = dataArray[i];
+    
+                // Append the child elements in the correct order
+                div3.appendChild(hEl);
+                div3.appendChild(pEl);
+                div2.appendChild(div3);
+                div1.appendChild(div2);
+                subContainerEl.appendChild(div1); 
+            }
+        }
+
+        function emplyeeCard(dataArray){
+            subContainerEl.innerHTML = ""; // Clear previous content
+            for (let i = 0; i < dataArray.length; i++) {
+            
+                let div1 = document.createElement("div");
+                div1.classList.add("col-md-4", "mb-3"); 
+    
+                let div2 = document.createElement("div");
+                div2.classList.add("card", "tag", "text-white");
+    
+                let div3 = document.createElement("div");
+                div3.classList.add("card-body");
+    
+                let n = Math.floor(Math.random() * 10) + 1; 
+    
+                let hEl = document.createElement("h1");
+                hEl.classList.add("card-title");
+                hEl.textContent = n;
+    
+                let pEl = document.createElement("p");
+                pEl.classList.add("card-text");
+                pEl.textContent = dataArray[i];
+    
+                // Append the child elements in the correct order
+                div3.appendChild(hEl);
+                div3.appendChild(pEl);
+                div2.appendChild(div3);
+                div1.appendChild(div2);
+                subContainerEl.appendChild(div1); 
+            }
+
+        }
+        // Event listeners for buttons
+        document.getElementById("adminBtn").addEventListener("click", () => createCards(adminData));
+        document.getElementById("depart").addEventListener("click", () => createCards(departData));
+        document.getElementById("employe").addEventListener("click",() => emplyeeCard(firstNames));
+        document.getElementById("users").addEventListener("click",()=>emplyeeCard(use));
+
+    </script>
+    
+</body>
+
+</html>
